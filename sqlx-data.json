@@ -1,5 +1,26 @@
 {
   "db": "PostgreSQL",
+  "1438a34cb067114d18b6aa7faa82296a7c5316b770960041c73d36a2d8fba21d": {
+    "describe": {
+      "columns": [
+        {
+          "name": "user_id",
+          "ordinal": 0,
+          "type_info": "Uuid"
+        }
+      ],
+      "nullable": [
+        false
+      ],
+      "parameters": {
+        "Left": [
+          "Text",
+          "Text"
+        ]
+      }
+    },
+    "query": " \n        SELECT user_id \n        FROM users \n        WHERE username = $1 AND password = $2 \n        "
+  },
   "2163b03998a1ad09e2d1535999c76e7ec0eeb3aaeff67029de070dc6db3876b9": {
     "describe": {
       "columns": [],
