@@ -1,6 +1,19 @@
 {
   "db": "PostgreSQL",
-  "1438a34cb067114d18b6aa7faa82296a7c5316b770960041c73d36a2d8fba21d": {
+  "2163b03998a1ad09e2d1535999c76e7ec0eeb3aaeff67029de070dc6db3876b9": {
+    "describe": {
+      "columns": [],
+      "nullable": [],
+      "parameters": {
+        "Left": [
+          "Text",
+          "Uuid"
+        ]
+      }
+    },
+    "query": "INSERT INTO subscription_tokens (subscription_token, subscriber_id) \n        VALUES ($1, $2)"
+  },
+  "3cea0ab4ed803066fecee73eeb9278da4a77cf34b3df97af6852b2c1086af576": {
     "describe": {
       "columns": [
         {
@@ -19,20 +32,7 @@
         ]
       }
     },
-    "query": " \n        SELECT user_id \n        FROM users \n        WHERE username = $1 AND password = $2 \n        "
-  },
-  "2163b03998a1ad09e2d1535999c76e7ec0eeb3aaeff67029de070dc6db3876b9": {
-    "describe": {
-      "columns": [],
-      "nullable": [],
-      "parameters": {
-        "Left": [
-          "Text",
-          "Uuid"
-        ]
-      }
-    },
-    "query": "INSERT INTO subscription_tokens (subscription_token, subscriber_id) \n        VALUES ($1, $2)"
+    "query": " \n        SELECT user_id \n        FROM users \n        WHERE username = $1 AND password_hash = $2 \n        "
   },
   "5c42739139ba3cee74edce8f1c28798c9c959e0fefb22ec593b9423fe882ada7": {
     "describe": {
