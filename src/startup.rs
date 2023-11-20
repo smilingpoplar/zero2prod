@@ -1,8 +1,8 @@
 use crate::configuration::{DatabaseSettings, Settings};
 use crate::email_client::EmailClient;
 use crate::routes::confirm;
-use crate::routes::home;
 use crate::routes::{health_check, publish_newsletter, subscribe};
+use crate::routes::{home, login, login_form};
 use actix_web::dev::Server;
 use actix_web::{web, App, HttpServer};
 use sqlx::postgres::PgPoolOptions;
@@ -93,6 +93,8 @@ pub fn run(
             .route("/subscriptions/confirm", web::get().to(confirm))
             .route("/newsletters", web::post().to(publish_newsletter))
             .route("/", web::get().to(home))
+            .route("/login", web::get().to(login_form))
+            .route("/login", web::post().to(login))
             // Register the connection as part of the application state
             .app_data(db_pool.clone())
             .app_data(email_client.clone())
