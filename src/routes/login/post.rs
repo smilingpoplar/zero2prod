@@ -47,9 +47,8 @@ pub async fn login(form: web::Form<FormData>, pool: web::Data<PgPool>, secret: w
             );
     
             let hmac_tag = { 
-                let mut mac = Hmac::<sha2::Sha256>::new_from_slice(
-                    secret.0.expose_secret().as_bytes()
-                ).unwrap(); 
+                let mut mac = 
+                    Hmac::<sha2::Sha256>::new_from_slice(secret.0.expose_secret().as_bytes()).unwrap(); 
                 mac.update(query_string.as_bytes()); 
                 mac.finalize().into_bytes() 
             };
