@@ -31,6 +31,26 @@
     },
     "query": " SELECT email FROM subscriptions WHERE status = 'confirmed' "
   },
+  "643816bd6a2bcc56bec82f0605d6ba3bc7d510bc1ed4a8ca3fc1e11d79f00cf1": {
+    "describe": {
+      "columns": [
+        {
+          "name": "username",
+          "ordinal": 0,
+          "type_info": "Text"
+        }
+      ],
+      "nullable": [
+        false
+      ],
+      "parameters": {
+        "Left": [
+          "Uuid"
+        ]
+      }
+    },
+    "query": " SELECT username FROM users WHERE user_id = $1 "
+  },
   "67ff6b9b2c1a40fff5d4d7e05f9b01412646fb67253cd9224d4a920fb093acf4": {
     "describe": {
       "columns": [
