@@ -45,6 +45,7 @@ urlencoding = "2"
 htmlescape = "0.3"
 actix-web-flash-messages = { version = "0.3", features = ["cookies"] }
 serde_json = "1"
+actix-web-lab = "0.15"
 
 # Using table-like toml syntax to avoid a super-long line! 
 [dependencies.sqlx]
