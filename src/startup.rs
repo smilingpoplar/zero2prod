@@ -5,7 +5,7 @@ use crate::routes::admin_dashboard;
 use crate::routes::confirm;
 use crate::routes::log_out;
 use crate::routes::{change_password, change_password_form};
-use crate::routes::{health_check, publish_newsletter, subscribe};
+use crate::routes::{health_check, publish_newsletter, publish_newsletter_form, subscribe};
 use crate::routes::{home, login, login_form};
 use actix_session::storage::RedisSessionStore;
 use actix_session::SessionMiddleware;
@@ -120,7 +120,6 @@ async fn run(
             .route("/health_check", web::get().to(health_check))
             .route("/subscriptions", web::post().to(subscribe))
             .route("/subscriptions/confirm", web::get().to(confirm))
-            .route("/newsletters", web::post().to(publish_newsletter))
             .route("/", web::get().to(home))
             .route("/login", web::get().to(login_form))
             .route("/login", web::post().to(login))
@@ -130,7 +129,9 @@ async fn run(
                     .route("/dashboard", web::get().to(admin_dashboard))
                     .route("/password", web::get().to(change_password_form))
                     .route("/password", web::post().to(change_password))
-                    .route("/logout", web::post().to(log_out)),
+                    .route("/logout", web::post().to(log_out))
+                    .route("/newsletters", web::get().to(publish_newsletter_form))
+                    .route("/newsletters", web::post().to(publish_newsletter)),
             )
             // Register the connection as part of the application state
             .app_data(db_pool.clone())
